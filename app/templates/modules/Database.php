@@ -40,7 +40,7 @@ class Database {
 
     if( $currentVersion != Database::version ) {
       require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-      $table = $wpdb->prefix . $tableName;
+      $table = $wpdb->prefix . Database::tableName;
       $sql = "CREATE TABLE $table (
         id INTEGER NOT NULL AUTO_INCREMENT,
         created_at DATETIME DEFAULT '0000-00-00 00:00:00' NOT NULL,
@@ -50,7 +50,7 @@ class Database {
         UNIQUE KEY id (id)
         );";
       dbDelta($sql);
-      update_option( $versionOption, Datanase::version );
+      update_option( $versionOption, Database::version );
 
     }
   }
