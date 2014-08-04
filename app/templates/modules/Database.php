@@ -50,7 +50,7 @@ class Database {
         UNIQUE KEY id (id)
         );";
       dbDelta($sql);
-      update_option( $versionOption, Datanase::version );
+      update_option( $versionOption, Database::version );
 
     }
   }
